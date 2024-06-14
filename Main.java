@@ -1,20 +1,51 @@
-package day8_5th_June;
+package day13_13th_june;
+// Superclass (General class)
+class Animal {
+    String name;
 
-public class Main {
+    public Animal(String name) {
+        this.name = name;
+    }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		Outer.Nested nestedObj = new Outer.Nested();
-		nestedObj.display();
-
-	}
+    public void makeSound() {
+        System.out.println("Some generic sound");
+    }
 }
 
-class Outer{
-	static class Nested{
-		void display() {
-			System.out.println("Static Nested class");
-		}
-	}
+//Subclass (Specialized class)
+class Dog extends Animal {
+ public Dog(String name) {
+     super(name);
+ }
+
+ @Override
+ public void makeSound() {
+     System.out.println("Woof!");
+ }
+}
+
+//Subclass (Specialized class)
+class Cat extends Animal {
+ public Cat(String name) {
+     super(name);
+ }
+
+ @Override
+ public void makeSound() {
+     System.out.println("Meow!");
+ }
+}
+
+public class Main {
+public static void main(String[] args) {
+	Dog dog = new Dog("Buddy");
+    Cat cat = new Cat("Whiskers");
+
+    System.out.println("Dog: " + dog.name);
+    dog.makeSound();
+
+    System.out.println("Cat: " + cat.name);
+    cat.makeSound();
+
+}
 }

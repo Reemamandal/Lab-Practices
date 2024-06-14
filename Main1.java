@@ -1,18 +1,69 @@
+package day14_14th_june;
+//Superclass
+class Shape {
+ public double calculateArea() {
+     return 0.0; // Default implementation for unknown shapes
+ }
+}
+
+//Subclass 1
+class Circle extends Shape {
+ private double radius;
+
+ public Circle(double radius) {
+     this.radius = radius;
+ }
+
+ @Override
+ public double calculateArea() {
+     return Math.PI * radius * radius;
+ }
+}
+
+//Subclass 2
+class Rectangle extends Shape {
+ private double length;
+ private double width;
+
+ public Rectangle(double length, double width) {
+     this.length = length;
+     this.width = width;
+ }
+
+ @Override
+ public double calculateArea() {
+     return length * width;
+ }
+}
+
+//Subclass 3
+class Triangle extends Shape {
+ private double base;
+ private double height;
+
+ public Triangle(double base, double height) {
+     this.base = base;
+     this.height = height;
+ }
+
+ @Override
+ public double calculateArea() {
+     return 0.5 * base * height;
+ }
+}
+
 
 public class Main1 {
+public static void main(String[] agrs) {
+	 // Creating objects of Circle, Rectangle, and Triangle
+    Circle circle = new Circle(5.0);
+    Rectangle rectangle = new Rectangle(4.0,6.0);
+    Triangle triangle = new Triangle(3.0, 4.0);
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Outer outerObj = new Outer();
-		Outer.Inner innerObj= outerObj.new Inner();
-		innerObj.display();
-
-	}
+    // Calculating and displaying the areas
+    System.out.println("Circle area: " + circle.calculateArea());
+    System.out.println("Rectangle area: " + rectangle.calculateArea());
+    System.out.println("Triangle area: " + triangle.calculateArea());
+   
 }
-class Outer {
-	class Inner {
-		void display() {
-			System.out.println("Inner class");
-		}
-	}
 }
